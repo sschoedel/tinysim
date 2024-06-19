@@ -1,6 +1,8 @@
 using Pkg; Pkg.activate(@__DIR__)
 
 using MeshCat
+using MeshCatMechanisms
+using RigidBodyDynamics
 using FileIO, MeshIO
 using GeometryBasics
 
@@ -8,6 +10,12 @@ vis = Visualizer()
 render(vis)
 
 ##
+
+urdfpath = joinpath(@__DIR__, "biped_model/biped.urdf");
+mech = parse_urdf(urdfpath, floating=true, remove_fixed_tree_joints=true)
+
+delete!(vis)
+mvis = MechanismVisualizer(mech, URDFVisuals(urdfpath), vis)
 
 
 left_shin_mesh = load("biped_model/shin.STL")

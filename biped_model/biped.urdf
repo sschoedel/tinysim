@@ -3,7 +3,7 @@
 
 <!-- revolute joints -->
 <joint name="LEFT_HIP_X" type="revolute">
-    <origin rpy="0 0 0" xyz="0 0.115 -0.07185" />
+    <origin rpy="0 0 0" xyz="0.055 0.0935 0.02" />
     <axis xyz="0 0 -1" />
     <parent link="BODY_LINK" />
     <child link="LEFT_HIP_LINK" />
@@ -12,7 +12,7 @@
 </joint>
 
 <joint name="RIGHT_HIP_X" type="revolute">
-    <origin rpy="0 0 0" xyz="0 -0.115 -0.07185" />
+    <origin rpy="0 0 0" xyz="0.055 -0.093 0.02" />
     <axis xyz="0 0 -1" />
     <parent link="BODY_LINK" />
     <child link="RIGHT_HIP_LINK" />
@@ -21,7 +21,7 @@
 </joint>
 
 <joint name="LEFT_THIGH_Y" type="revolute">
-    <origin rpy="0 0 0" xyz="0.035 0.015 -0.04975" />
+    <origin rpy="0 0 0" xyz="-0.06 0.0345 0.0" />
     <axis xyz="1 0 0" />
     <parent link="LEFT_HIP_LINK" />
     <child link="LEFT_THIGH_LINK" />
@@ -30,7 +30,7 @@
 </joint>
 
 <joint name="RIGHT_THIGH_Y" type="revolute">
-    <origin rpy="0 0 0" xyz="0.035 -0.015 -0.04975" />
+    <origin rpy="0 0 0" xyz="-0.06 -0.0345 0.0" />
     <axis xyz="1 0 0" />
     <parent link="RIGHT_HIP_LINK" />
     <child link="RIGHT_THIGH_LINK" />
@@ -39,7 +39,7 @@
 </joint>
 
 <joint name="LEFT_KNEE_Y" type="revolute">
-    <origin rpy="0 0 0" xyz="0 0 -0.079068" />
+    <origin rpy="0 0 0" xyz="0 0 -0.3" />
     <axis xyz="0 1 0" />
     <parent link="LEFT_THIGH_LINK" />
     <child link="LEFT_SHIN_LINK" />
@@ -48,7 +48,7 @@
 </joint>
 
 <joint name='RIGHT_KNEE_Y' type='revolute'>
-    <origin rpy="0 0 0" xyz="0 0 -0.38" />
+    <origin rpy="0 0 0" xyz="0 0 -0.3" />
     <axis xyz="0 1 0" />
     <parent link="RIGHT_THIGH_LINK" />
     <child link="RIGHT_SHIN_LINK" />
@@ -59,9 +59,9 @@
 <!-- links -->
 <link name="BODY_LINK">
   <inertial>
-    <mass value="19.0917"/>
-    <origin rpy="0 0 0" xyz="0.02073086 2.023E-05 -0.0309812"/>
-    <inertia ixx="0.0942" ixy="6.05E-06" ixz="0.000379" iyy="0.0416" iyz="3.37E-07" izz="0.112" />
+    <mass value="1.404"/>
+    <origin rpy="0 0 0" xyz="-0.00115 0.0 0.05486"/>
+    <inertia ixx="0.00503" ixy="0.0" ixz="-0.00107" iyy="0.00499" iyz="0.0" izz="0.00431" />
   </inertial>
   <visual>
     <geometry>
@@ -73,13 +73,13 @@
 
 <link name="LEFT_HIP_LINK">
   <inertial>
-    <mass value="1.814"/>
-    <origin rpy="0 0 0" xyz="-0.00629727 0.00606893 -0.03971844"/>
-    <inertia ixx="0.004741914" ixy="0.000527" ixz="-0.000307" iyy="0.00414" iyz="1.36E-05" izz="0.00569" />
+    <mass value="0.196"/>
+    <origin rpy="0 0 0" xyz="-0.06 0.0 0.0"/>
+    <inertia ixx="0.000052224" ixy="0.0" ixz="0.0" iyy="0.000261120" iyz="0.0" izz="0.000261120" />
   </inertial>
   <visual>
     <geometry>
-      <mesh filename="package://biped_model/hip.obj"/>
+      <mesh filename="package://biped_model/hip.STL"/>
     </geometry>
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
   </visual>
@@ -87,13 +87,13 @@
 
 <link name="RIGHT_HIP_LINK">
   <inertial>
-    <mass value="1.814"/>
-    <origin rpy="0 0 0" xyz="-0.00629727 -0.00606893 -0.03971844"/>
-    <inertia ixx="0.004741914" ixy="-0.000527" ixz="-0.000307" iyy="0.00414" iyz="-1.36E-05" izz="0.00569" />
+    <mass value="0.196"/>
+    <origin rpy="0 0 0" xyz="-0.06 0.0 0.0"/>
+    <inertia ixx="0.000052224" ixy="0.0" ixz="0.0" iyy="0.000261120" iyz="0.0" izz="0.000261120" />
   </inertial>
   <visual>
     <geometry>
-      <mesh filename="package://biped_model/hip.obj"/>
+      <mesh filename="package://biped_model/hip.STL"/>
     </geometry>
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
   </visual>
@@ -101,13 +101,13 @@
 
 <link name="LEFT_THIGH_LINK">
   <inertial>
-    <mass value="0.762"/>
-    <origin rpy="0 0 0" xyz="-0.01327037 0.00316985 -0.05399997"/>
-    <inertia ixx="0.001028994" ixy="-9.31E-06" ixz="0.000352" iyy="0.00138" iyz="3.22E-05" izz="0.000663" />
+    <mass value="0.306"/>
+    <origin rpy="0 0 0" xyz="0.0 0.0 -0.015"/>
+    <inertia ixx="0.0091959375" ixy="0.0" ixz="0.0" iyy="0.0092208" iyz="0.0" izz="0.0000567375" />
   </inertial>
   <visual>
     <geometry>
-      <mesh filename="package://biped_model/thigh.obj"/>
+      <mesh filename="package://biped_model/thigh.STL"/>
     </geometry>
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
   </visual>
@@ -115,13 +115,13 @@
 
 <link name="RIGHT_THIGH_LINK">
   <inertial>
-    <mass value="0.762"/>
-    <origin rpy="0 0 0" xyz="-0.01327037 -0.00316985 -0.05399997"/>
-    <inertia ixx="0.001028994" ixy="9.31E-06" ixz="0.000352" iyy="0.00138" iyz="-3.22E-05" izz="0.000663" />
+    <mass value="0.306"/>
+    <origin rpy="0 0 0" xyz="0.0 0.0 -0.015"/>
+    <inertia ixx="0.0091959375" ixy="0.0" ixz="0.0" iyy="0.0092208" iyz="0.0" izz="0.0000567375" />
   </inertial>
   <visual>
     <geometry>
-      <mesh filename="package://biped_model/thigh.obj"/>
+      <mesh filename="package://biped_model/thigh.STL"/>
     </geometry>
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
   </visual>
@@ -130,12 +130,12 @@
 <link name="LEFT_SHIN_LINK">
   <inertial>
     <mass value="10.953"/>
-    <origin rpy="0 0 0" xyz="-0.00093749 0.01134511 -0.17863144"/>
-    <inertia ixx="0.1622268263" ixy="-0.000749" ixz="0.0156" iyy="0.174" iyz="0.00213" izz="0.0528" />
+    <origin rpy="0 0 0" xyz="0.0 0.0 -0.12218"/>
+    <inertia ixx="0.0014311516" ixy="-0.19E-9" ixz="0.12E-9" iyy="0.00143198183" iyz="-0.17E-9" izz="2.79931E-6" />
   </inertial>
   <visual>
     <geometry>
-      <mesh filename="package://biped_model/shin.obj"/>
+      <mesh filename="package://biped_model/shin.STL"/>
     </geometry>
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
   </visual>
@@ -144,12 +144,12 @@
 <link name="RIGHT_SHIN_LINK">
   <inertial>
     <mass value="10.953"/>
-    <origin rpy="0 0 0" xyz="-0.00093749 -0.01134511 -0.17863144"/>
-    <inertia ixx="0.1622268263" ixy="0.000749" ixz="0.0156" iyy="0.174" iyz="-0.00213" izz="0.0528" />
+    <origin rpy="0 0 0" xyz="0.0 0.0 -0.12218"/>
+    <inertia ixx="0.0014311516" ixy="-0.19E-9" ixz="0.12E-9" iyy="0.00143198183" iyz="-0.17E-9" izz="2.79931E-6" />
   </inertial>
   <visual>
     <geometry>
-      <mesh filename="package://biped_model/shin.obj"/>
+      <mesh filename="package://biped_model/shin.STL"/>
     </geometry>
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
   </visual>
