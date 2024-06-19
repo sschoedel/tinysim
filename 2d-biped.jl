@@ -1,11 +1,39 @@
 using Pkg; Pkg.activate(@__DIR__)
 
 using MeshCat
+using FileIO, MeshIO
+using GeometryBasics
 
 vis = Visualizer()
 render(vis)
 
 ##
+
+
+left_shin_mesh = load("biped_model/shin.STL")
+setobject!(vis[:robot][:left_shin], left_shin_mesh)
+
+right_shin_mesh = load("biped_model/shin.STL")
+setobject!(vis[:robot][:right_shin], right_shin_mesh)
+
+left_thigh_mesh = load("biped_model/thigh.STL")
+setobject!(vis[:robot][:left_thigh], left_thigh_mesh)
+
+right_thigh_mesh = load("biped_model/thigh.STL")
+setobject!(vis[:robot][:right_thigh], right_thigh_mesh)
+
+left_hip_mesh = load("biped_model/hip.STL")
+setobject!(vis[:robot][:left_hip], left_hip_mesh)
+
+right_hip_mesh = load("biped_model/hip.STL")
+setobject!(vis[:robot][:right_hip], right_hip_mesh)
+
+left_body_mesh = load("biped_model/body.STL")
+setobject!(vis[:robot][:left_body], left_body_mesh)
+
+delete!(vis[:robot])
+
+
 
 # Figure out dynamics (probably with Lagrangian dynamics?)
 # Maybe try figuring it out with Newtonian dynamics also
