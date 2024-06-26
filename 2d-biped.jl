@@ -17,31 +17,15 @@ mech = parse_urdf(urdfpath, floating=true, remove_fixed_tree_joints=true)
 delete!(vis)
 mvis = MechanismVisualizer(mech, URDFVisuals(urdfpath), vis)
 
+##
 
-left_shin_mesh = load("biped_model/shin.STL")
-setobject!(vis[:robot][:left_shin], left_shin_mesh)
-
-right_shin_mesh = load("biped_model/shin.STL")
-setobject!(vis[:robot][:right_shin], right_shin_mesh)
-
-left_thigh_mesh = load("biped_model/thigh.STL")
-setobject!(vis[:robot][:left_thigh], left_thigh_mesh)
-
-right_thigh_mesh = load("biped_model/thigh.STL")
-setobject!(vis[:robot][:right_thigh], right_thigh_mesh)
-
-left_hip_mesh = load("biped_model/hip.STL")
-setobject!(vis[:robot][:left_hip], left_hip_mesh)
-
-right_hip_mesh = load("biped_model/hip.STL")
-setobject!(vis[:robot][:right_hip], right_hip_mesh)
-
-left_body_mesh = load("biped_model/body.STL")
-setobject!(vis[:robot][:left_body], left_body_mesh)
-
-delete!(vis[:robot])
-
-
+function rk4(model::Nadia, x, u, h; gains=RigidBodyDynamics.default_constraint_stabilization_gains(Float64))
+    k1 = dynamics(model, x, u; gains=gains)
+    k2 = dynamics(model, x + h/2*k1, u; gains=gains)
+    k3 = dynamics(model, x + h/2*k2, u; gains=gains)
+    k4 = dynamics(model, x + h*k3, u; gains=gains)
+    return x + h/6*(k1 + 2*k2 + 2*k3 + k4)
+end
 
 # Figure out dynamics (probably with Lagrangian dynamics?)
 # Maybe try figuring it out with Newtonian dynamics also
