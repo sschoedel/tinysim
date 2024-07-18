@@ -1,2 +1,2 @@
-dearpygui==1.11.0
 numpy==2.0.0
+pyglet==2.0.16
