@@ -1,13 +1,10 @@
 import robots
+import environments
 import simulator
-import visualizer
 
 # robot = robots.DoublePendulum()
-robot = robots.SingleStick()
-robot_simulation = simulator.RobotSimulator(robot)
-robot_visualizer = visualizer.RobotVisualizer(robot)
-
-robot_simulation.start_thread()
-robot_visualizer.start()
-
-robot_simulation.stop_thread()
+# robot = robots.SingleStick()
+robot = robots.SingleBox()
+environment = environments.DefaultEnvironment()
+simulation = simulator.RobotSimulator(robot, environment)
+simulation.start_threads()
